@@ -2,12 +2,12 @@ package com.platinumit.unitconverter;
 
 public class UnitConverter {
 
-    public double convert(float fromValue, String fromSymbol, String toSymbol) {
+    static public double convert(double fromValue, String fromSymbol, String toSymbol) {
 
-        double convertedValue = 0;
+        double convertedValue = -1;
 
         if (!(fromValue > 0) || fromSymbol.isEmpty() || toSymbol.isEmpty()) {
-            return 0;
+            return -1;
         }
 
         if (fromSymbol.equals("kg") && toSymbol.equals("lb")) {
