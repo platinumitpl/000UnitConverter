@@ -15,6 +15,22 @@ public class UnitConverter {
             convertedValue = fromValue * convertRate;
         }
 
+        if (fromSymbol.equals("lb") && toSymbol.equals("kg")) {
+            double convertRate = 2.20462;
+            convertedValue = fromValue / convertRate;
+        }
+
+        if (fromSymbol.equals("m") && toSymbol.equals("cm")) {
+            double convertRate = 100;
+            convertedValue = fromValue * convertRate;
+        }
+
+
+        if (fromSymbol.equals("cm") && toSymbol.equals("m")) {
+            double convertRate = 100;
+            convertedValue = fromValue / convertRate;
+        }
+
         return convertedValue;
     }
 
