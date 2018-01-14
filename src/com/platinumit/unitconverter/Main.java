@@ -8,7 +8,11 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-public class Main extends Application {
+public class Main extends Application implements EventHandler<ActionEvent> {
+
+
+    Button button;
+
 
     public static void main(String[] args) {
 
@@ -22,8 +26,8 @@ public class Main extends Application {
 //
 //        System.out.println(convertedValue);
 
-
-        launch(args); //go to Application and set up my JavaFX app
+        //go to Application and set up my JavaFX app
+        launch(args);
 
     }
 
@@ -32,6 +36,42 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
+        //set title of primary stage
+        primaryStage.setTitle("Title of the window");
 
+        //create new button
+        button = new Button();
+
+        //set button label
+        button.setText("Convert");
+        button.setOnAction(this);
+
+        //create new pane
+        StackPane layout = new StackPane();
+
+        //add button to the pane
+        layout.getChildren().add(button);
+
+        //create new scene (thing inside of a stage)
+        Scene scene = new Scene(layout, 300, 250);
+
+        //set scene in a stage
+        primaryStage.setScene(scene);
+
+        //show window (stage)
+        primaryStage.show();
+
+
+    }
+
+
+    @Override
+    public void handle(ActionEvent event) {
+        //identify the source - what button has been clicked
+        if (event.getSource() == button) {
+
+            System.out.println("nice button has been clicked");
+
+        }
     }
 }
